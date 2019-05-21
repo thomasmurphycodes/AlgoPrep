@@ -1,7 +1,9 @@
 package com.algoprep;
 
+import com.algoprep.Algorithms.DynamicProgramming;
 import com.algoprep.Algorithms.Greedy;
 import com.algoprep.Bootstraps.BootstrapTrees;
+import com.algoprep.Bootstraps.DynamicProgrammingBootstrap;
 import com.algoprep.Bootstraps.GreedyBootstrap;
 import com.algoprep.Entities.Activity;
 import com.algoprep.Entities.HuffmanNode;
@@ -28,6 +30,9 @@ public class Main {
 //        System.out.println(fibonacciSeq);
 //        List<Activity> activityList = Greedy.selectUnweightedActivities(GreedyBootstrap.bootstrapActivities());
 //        activityList.forEach(x -> System.out.print("Activity ID:" + x.id + " "));
-        HuffmanNode huffmanNode = Greedy.huffmanCoding(GreedyBootstrap.bootstrapHuffmanCoding());
+//        HuffmanNode huffmanNode = Greedy.huffmanCoding(GreedyBootstrap.bootstrapHuffmanCoding());
+        Integer maxTheft = DynamicProgramming.calculateMaximumKnapsackValue(
+                DynamicProgrammingBootstrap.bootstrapKnapsackProblem(), 4);
+        System.out.println("Maximum Value is: " + maxTheft);
     }
 }
