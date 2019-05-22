@@ -2,11 +2,9 @@ package com.algoprep;
 
 import com.algoprep.Algorithms.DynamicProgramming;
 import com.algoprep.Algorithms.Greedy;
+import com.algoprep.Algorithms.Search;
 import com.algoprep.Algorithms.Sort;
-import com.algoprep.Bootstraps.BootstrapSort;
-import com.algoprep.Bootstraps.BootstrapTrees;
-import com.algoprep.Bootstraps.DynamicProgrammingBootstrap;
-import com.algoprep.Bootstraps.GreedyBootstrap;
+import com.algoprep.Bootstraps.*;
 import com.algoprep.Entities.Activity;
 import com.algoprep.Entities.HuffmanNode;
 import com.algoprep.Entities.LinkedListNode;
@@ -39,7 +37,8 @@ public class Main {
 //        System.out.println("Maximum Value is: " + maxTheft);
 //        System.out.println(Arrays.toString(Sort.quicksort(BootstrapSort.partionQuicksort(), 0 ,
 //                BootstrapSort.partionQuicksort().length - 1)));
-        System.out.println(Recursion.lowestCommonDenominator(Arrays.asList(12, 18, 30)));
+//        System.out.println(Recursion.lowestCommonDenominator(Arrays.asList(12, 18, 30)));
+        System.out.println(Search.binarySearch(BootstrapSearch.bootstrapBinarySearch(), 9));
 
     }
 }
