@@ -3,6 +3,8 @@ package com.algoprep;
 import com.algoprep.Entities.LinkedListNode;
 import com.algoprep.Entities.Node;
 
+import java.util.List;
+
 public class Recursion {
     /** Recursion consists of a repeated function call with shifting arguments, building up a stack.
      * It requires an ending condition to return a result and prevent infinite recursion
@@ -25,6 +27,31 @@ public class Recursion {
             return inputOne;
         }
         return greatestCommonFactor(inputTwo, inputOne%inputTwo);
+    }
+
+    /**
+     *
+     * The lowest common denominator (Least Common Multiple in British English) of
+     * two factors can be found with the Euclidean algorithm. For n numbers, you can apply something like the
+     * chain rule from integration (e.g. GCD(n1, n2, n3) = GCD(GCD(n1,n2),n3)
+     *
+     */
+    public static Integer lowestCommonDenominator(List<Integer> numbers) {
+        Integer currentGreatestCommonFactor = 0;
+        Integer commonDenominator = 0;
+        if(numbers.size() == 2) {
+            return numbers.get(0) * numbers.get(1) / greatestCommonFactor(numbers.get(0), numbers.get(1));
+        }
+        for(int i = 1; i < numbers.size() - 1; i++) {
+            if(i == 1) {
+                currentGreatestCommonFactor = greatestCommonFactor(numbers.get(i-1), numbers.get(i));
+                commonDenominator = numbers.get(i-1) * numbers.get(i) / currentGreatestCommonFactor;
+            }
+            currentGreatestCommonFactor = greatestCommonFactor(currentGreatestCommonFactor, numbers.get(i+1));
+            Integer numbersProduct = numbers.stream().reduce(1, (x, y) -> x * y);
+            commonDenominator = (numbersProduct / currentGreatestCommonFactor) / numbers.get(0);
+        }
+        return commonDenominator;
     }
 
     public static Integer fibonacciSequence(int sequenceNumber) {

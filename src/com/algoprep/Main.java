@@ -2,6 +2,8 @@ package com.algoprep;
 
 import com.algoprep.Algorithms.DynamicProgramming;
 import com.algoprep.Algorithms.Greedy;
+import com.algoprep.Algorithms.Sort;
+import com.algoprep.Bootstraps.BootstrapSort;
 import com.algoprep.Bootstraps.BootstrapTrees;
 import com.algoprep.Bootstraps.DynamicProgrammingBootstrap;
 import com.algoprep.Bootstraps.GreedyBootstrap;
@@ -10,6 +12,7 @@ import com.algoprep.Entities.HuffmanNode;
 import com.algoprep.Entities.LinkedListNode;
 import com.algoprep.Entities.Node;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -31,8 +34,12 @@ public class Main {
 //        List<Activity> activityList = Greedy.selectUnweightedActivities(GreedyBootstrap.bootstrapActivities());
 //        activityList.forEach(x -> System.out.print("Activity ID:" + x.id + " "));
 //        HuffmanNode huffmanNode = Greedy.huffmanCoding(GreedyBootstrap.bootstrapHuffmanCoding());
-        Integer maxTheft = DynamicProgramming.calculateMaximumKnapsackValue(
-                DynamicProgrammingBootstrap.bootstrapKnapsackProblem(), 4);
-        System.out.println("Maximum Value is: " + maxTheft);
+//        Integer maxTheft = DynamicProgramming.calculateMaximumKnapsackValue(
+//                DynamicProgrammingBootstrap.bootstrapKnapsackProblem(), 4);
+//        System.out.println("Maximum Value is: " + maxTheft);
+//        System.out.println(Arrays.toString(Sort.quicksort(BootstrapSort.partionQuicksort(), 0 ,
+//                BootstrapSort.partionQuicksort().length - 1)));
+        System.out.println(Recursion.lowestCommonDenominator(Arrays.asList(12, 18, 30)));
+
     }
 }
