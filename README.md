@@ -13,5 +13,5 @@ Permutation
 Combination
 
 Binomial Coefficient
-
+Works recursively if you pad each both sides of Pascal's triangle with 0's i.e. pos[k] = pos[n] + pos[n-1]
 Factorial
