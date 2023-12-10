@@ -16,7 +16,7 @@ public class DynamicProgramming {
      *
      * Dynamic Programming construct "sub-knapsacks" first
      * This is modeled with a matrix
-     * Rows are items, columns are knapsack sizes
+     * Rows are items, columns are knapsack sizes (e.g. column 4 is the knapsack of size 4)
      *
      * Fill in the value function to that items row
      * For each row in each column, this represents the "best guess" of the maximum value to steal
@@ -41,11 +41,16 @@ public class DynamicProgramming {
     public static Integer calculateMaximumKnapsackValue(List<StealableItem> stealableItems, Integer sackSize) {
         int[][] knapsackArray = new int[stealableItems.size()][sackSize];
 
-        for(int i = 0; i < stealableItems.size(); i++) {
+        # J IS COLUMNS, I IS THE STEALABLE ITEM
+        for(int i = 0; i < stealableItems.size(); i++) { # iterate over the items
             for(int j = 0; j < sackSize; j++) {
-                // First row is always first value
+                # here we are iterating the columns
                 if(i == 0) {
-                    knapsackArray[i][j] = stealableItems.get(i).value;
+                    if(j < stealableItems.weight){
+                        knapsackArray[i][j] = stealableItems.get(i).value;
+                    } else {
+                        knapsackArray[i][j] = 0; # couldn't steal it, too heavy
+                    }
                     // Weight is too heavy, take previous rows value
                 } else if (j - stealableItems.get(i).weight < 0) {
                     knapsackArray[i][j] = knapsackArray[i-1][j];
